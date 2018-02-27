@@ -1,0 +1,37 @@
+# basic java programming
+-- OOP
+-- Object
+-- Java Class
+	kapan kita membuat class
+	utk mendeskripsikan object yg kita buat
+	hanya struktur bukan database
+-- Java Object => instansiasi dari class
+	ketika variabel akan dipakai dalam sistem
+-- constructor
+	constructor yang dijalankan saat instansiasi
+-- overloading
+	method yg sama tp parameter berbeda
+-- encapsulation
+	data hiding --> getter and setter, pembungkusan atribut dr sebuah class
+-- exception handling
+	menangani error sehingga program tetep jalan
+-- inheritance
+-- overriding
+	mendefinisikan ulang method dr parent class
+-- polymorphism
+	bentuk lain dr class
+	pembuatan objek dengan constructor dari child classnya
+
+# Framework Spring
+-- DAO Pattern (Data Access Object)
+-- Spring MVC
+-- IOC (Inversion of Control)
+-- dependency injection (DI)
+-- MAVEN (build tool)
+-- ORM -> Hibernate
+
+# Front end
+-- HTML + CSS
+-- Javascript
+-- Bootstrap
+-- Ajax
