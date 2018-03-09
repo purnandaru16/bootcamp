@@ -1,0 +1,55 @@
+# Spring
+## Requirement
+1. internet
+2. IDE
+
+## MAVEN
+build tool
+
+## Spring
+core framework aplikasi
+
+dispatcher-servlet
+-menghubungkan javawebb dg spring
+
+web.xml
+-intersep ketika web pertama kali di load
+
+spring container
+-file utk meload library utk meng-config package2 di java
+
+java resources
+- meload data .properties
+
+
+-- buat applicationContext utk konek database
+buat applicationContext
+tambahin listener di web.xml
+tambah config di applicationContext.xml
+buat file properties
+tambah java resources di applicationContext.xml
+
+-- konfigurasi hibernate
+tambah sessionFactory
+ubah dialect sesuai db yg dipake
+tambah transaction manager
+
+-- buat tabel pake hibernate
+buat pojo
+tambahin anotasi
+tentukan pk
+daftarin di sessionFactory
+
+-- buat DAO
+dao interface --> berisi kumpulan method yg tidak memiliki body, utk komunikasi, katalog method
+dao impl
+--add @Repository
+--buat object sessionFactory
+--add @Autowired --> tdk perlu instansiasi
+--sesi = menyimpan data dlm aplikasi
+--flush = memastikan data tersimpan dlm database
+--@PostConstruct = seperti constructor, jalan setelah semua dependency dijalankan
+
+
+
+
