@@ -43,27 +43,31 @@
 		}
 		
 		//simpan di tabel pesanan
-		$('#btn-pilih').on('click', function(){
+		$('.pilih').on('click', function(evt){
 			evt.preventDefault();
-			var namaBarang = $('#insert-nama').val();
-			var harga = $('#insert-harga').val();
+			var idBrg = $(this).attr('idBrg');
+			var idCust = $('#select-cust').val();
 			var jumlah = $('#select-jumlah').val();
-			var status = 0;
+			//var status = "0";
 			var order = {
-				'namaBarang' : namaBarang,
-				'harga' : harga,
-				'jumlah' : address,
-				'salary' : salary
+				'barang' : {
+					'idBrg' : idBrg
+				},
+				'customer' : {
+					'id' : idCust
+				},
+				'jumlah' : jumlah,
+				'status' : 0
 			};
-			console.log(employee);
+			console.log(order);
 			//ajax
 			$.ajax({
 				type : 'POST',
-				url : '${pageContext.request.contextPath}/ajax-emp/save',
-				data : JSON.stringify(employee),
+				url : '${pageContext.request.contextPath}/order/save',
+				data : JSON.stringify(order),
 				contentType : 'application/json',
 				success : function(){
-					window.location = '${pageContext.request.contextPath}/ajax-emp';
+					alert('Barang Successfully added!');
 				}, error : function(){
 					alert('save failed');
 				}
@@ -95,8 +99,14 @@
 	<h3>Transaksi Penjualan</h3>
 	<div class="row">
 	  <div class="col-md-2">
-	  	<label for="id-cust">ID Customer</label>
-	  	<input type="text" class="form-control" id="id-cust" readonly value="1">
+	  	<div class="form-group">
+		    <label for="select-cust">Nama Customer</label>
+		    <select name="select-cust" id="select-cust" class="custom-select custom-select-md">
+		    	<c:forEach var="cust" items="${customers }">
+		    		<option value="${cust.id }">${cust.custName }</option>
+		    	</c:forEach>
+		    </select>
+		</div>
 	  </div>
 	  <div class="col-md-10"></div>
 	</div>
@@ -124,7 +134,7 @@
 						</select>
 					</td>
 					<td>
-						<a id="btn-pilih" class="pilih btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom" title="Pilih barang" data-toggle="button" aria-pressed="false" autocomplete="off" href="#">Pilih</a>
+						<a id="btn-pilih" idBrg="${brg.idBrg }"  class="pilih btn btn-info btn-sm" data-toggle="tooltip" data-placement="bottom" title="Pilih barang" data-toggle="button" aria-pressed="false" autocomplete="off" href="#">Pilih</a>
 					</td>
 				</tr>
 			</c:forEach>
@@ -134,7 +144,9 @@
 	<hr class="style5">
 	<div class="row">
 	  <div class="col-md-10"></div>
-	  <div class="col-md-2"><button type="button" class="cart btn btn-danger btn-block">Keranjang</button></div>
+	  <div class="col-md-2">
+	  	<a class="cart btn btn-danger btn-block" href="${pageContext.request.contextPath}/order">Keranjang</a>
+	  </div>
 	</div>
 		
 </div>
